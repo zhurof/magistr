@@ -1,0 +1,540 @@
+﻿$blue: #0E7BCE
+$yellow: #FFB21C
+$orange: #F59F1A
+$text:  #404040
+
+=placeholder($color)
+	&::-webkit-input-placeholder 
+		color: $color
+	&::-moz-placeholder 
+		color: $color
+	&:-ms-input-placeholder
+		color: $color
+		
+=pos
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	
+=obj
+	object-fit: cover
+	object-position: center
+
+=unlist
+	list-style: none
+	margin: 0
+	padding: 0
+
+html
+	box-sizing: border-box
+
+*,:before,:after
+	box-sizing: inherit
+	//для IE10
+	flex: 0 1 auto
+
+body
+	margin: 0
+	padding: 0
+	font: normal normal 24px/1.25 'Source Sans Pro'
+	color: $text
+	
+img,
+iframe,
+video
+	max-width: 100%
+	
+a
+	color: $blue
+	text-decoration: none
+
+a img
+	/*для IE10*/
+	border: none
+	
+em
+	font-style: inherit
+	color: $blue
+	
+strong
+	font-weight: 600
+
+p
+	margin: 0 0 1.5em
+	&:last-child
+		margin: 0
+
+*:focus
+	outline: none
+
+*:invalid
+	box-shadow: none
+
+/*элементы форм*/
+input,textarea,button,select
+	font: inherit
+	color: inherit	
+	
+textarea
+	resize: none
+	overflow: auto /*опять же для IE*/
+	
+//select
+	appearance: none
+	padding: 10.5px 40px 10.5px 20px
+	background: url(../img/icons/angle.svg) no-repeat right 19px center/11px auto
+	&::-ms-expand
+		display: none
+		
+//[type=search]
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration
+		display: none
+		
+//[type=number]
+	-moz-appearance: textfield
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button
+		appearance: none
+		margin: 0
+		
+/*кнопки*/
+button,
+[type=submit],
+[type=reset],
+[type=image]
+	cursor: pointer
+.btn
+	display: inline-block
+	cursor: pointer
+	background-color: $orange
+	font-size: 30px
+	line-height: 10/3*1
+	font-family: 'Open Sans', sans-serif
+	font-weight: bold
+	color: #fff
+	border: none
+	border-radius: 20px
+	min-width: 500px
+	max-width: 100%
+	overflow: hidden
+	text-overflow: ellipsis
+	user-select: none
+	padding: 0 20px
+	text-align: center
+	box-shadow: 0 10px rgba(245, 159, 26, 0.9)
+	&_white
+		background-color: #fff
+		box-shadow: 0px 4px 10px transparentize($blue,.6)
+		color: $text
+	&_small
+		font-size: 24px
+		line-height: 50/24*1
+		min-width: 0
+		padding: 0 23px
+		font-weight: 400
+	&_login
+		&:before
+			content: '\f007'
+			font-family: fontAwesome
+			color: $blue
+			margin: 0 8px 0 0
+
+/*заголовки*/
+h2,h3,h4,h5,h6
+	margin: 0 0 1em
+	
+h1
+	font-size: 50px
+	font-weight: bold
+	line-height: 63/50*1
+	margin: 0 0 .48em
+
+h2
+	font-size: 48px
+	line-height: 60/48*1
+	position: relative
+	&:before
+		content: '\e903'
+		color: $blue
+		display: inline-block
+		font: 
+			family: icomoon
+			size: 61/48*1em
+			weight: 400
+		position: absolute
+		left: 0
+		bottom: calc(100% - .5em)
+h3
+	font-size: inherit
+
+/*списки*/
+ul,ol
+	margin: 0 0 1em
+	&:last-child
+		margin: 0
+		
+/*таблицы*/
+/*контейнеры*/
+.wrapper
+	max-width: 1760px
+	margin: 0 auto
+	padding: 0 15px
+	
+/*модальные окна*/
+.modal-wrapper
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 100
+	background-color: rgba(0, 0, 0, 0.81)
+	padding: 20px 10px
+	overflow: auto
+	display: flex
+	flex-direction: column
+	.modal
+		display: block
+
+.modal
+	display: none
+	max-width: 100%
+	width: 585px
+	position: relative
+	margin: auto
+	background: #fff
+	padding: 30px
+	border-radius: 10px
+	&__close
+		display: inline-block
+		position: absolute
+		font-size: 18px
+		line-height: 1
+		padding: 0.5em
+		top: 0
+		right: 0
+		cursor: pointer
+
+/*ШАПКА*/
+.logo
+	display: inline-block
+	max-width: 100%
+	img
+		display: block
+		width: 100%
+
+.header
+	padding: 46px 0 58px
+	font-family: 'Open Sans'
+	&__wrapper
+		display: flex
+		align-items: center
+	&__logo
+		width: 224px
+		margin: 0
+	&__item
+		display: flex
+		align-items: center
+		margin: 0 14px 0 51px
+	&__title
+		font: 
+			size: 20px
+			weight: 600
+		margin: 0
+	&__contact
+		margin: 0 0 0 18px
+		width: max-content
+		max-width: 100%
+		font-size: 16px
+		&:nth-child(n+3)
+			margin: 0 0 0 34px
+	&__phone
+		display: block
+		width: max-content
+		font-size: 24px
+		font-weight: 600
+		line-height: normal
+		margin: 0 0 .1em
+		color: inherit
+		&[href*="wa.me"]:before
+			content: '\f232'
+			font-family: fontAwesome
+			color: #1AB52A
+			font-weight: 400
+			margin: 0 9px 0 0
+	&__location
+		display: inline-block
+		color: inherit
+		margin: 0 auto
+		border-bottom: 1px solid $blue
+		padding: .2em 0
+		cursor: pointer
+		user-select: none
+		&:before
+			content: '\e906'
+			font-family: icomoon
+			color: $blue
+			font-size: 20/24*100%
+			margin: 0 2px 0 0
+	&__btn
+		margin: 0 0 0 10px
+		
+.location
+	+unlist
+	columns: 2
+	
+/*ОСНОВНОЕ СОДЕРЖИМОЕ*/
+.top-block
+	padding: 166px 0 160px
+	background: url(../img/lazy-bastards.jpg) no-repeat left calc(50% + 418px) top 0
+	font-family: 'Open Sans'
+	font-size: 30px
+	&__title
+		font-family: 'Source Sans Pro'
+	&__text
+		max-width: 850px
+		padding: 0 0 0 5px
+		[class^="icon-"],[class^="fa-"]
+			font-size: 34/30*100%
+			vertical-align: text-bottom
+	&__btn
+		margin: 4px 0 0
+.service-card
+	margin: 0 15px 30px
+	width: 320px
+	text-align: center
+	font-family: 'Open Sans'
+	position: relative
+	padding: 37px 0 0
+	&:before
+		content: '\e902'
+		font-family: icomoon
+		background-color: $yellow
+		color: #fff
+		display: block
+		width: 66px
+		height: 66px
+		border-radius: 50%
+		text-align: center
+		line-height: 66px
+		position: absolute
+		top: 0
+		left: calc(50% - 145px)
+	&:after
+		content: '\e907'
+		font-family: icomoon
+		font-size: 40px
+		display: inline-block
+		position: absolute
+		top: 97px
+		left: calc(100% + 50px)
+	&:last-child:after
+		display: none
+	&:nth-last-child(2):after
+		content: '\e905'		
+	&__pic
+		width: 160px
+		height: 160px
+		background-color: #fff
+		border-radius: 50%
+		position: relative
+		margin: 0 auto 15px
+		box-shadow: 0px 4px 10px #0E7BCE
+		user-select: none
+		img
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%,-50%)
+			max-width: 80%
+			max-height: 80%
+	&__emphasis
+		display: block
+		color: $blue
+		font-size: 48px
+		font-weight: bold
+		font-family: 'Source Sans Pro'
+		margin: 0 0 9px
+.services
+	background-color: #F8FBFE
+	padding: 64px 0 117px
+	&__title
+		width: max-content
+		max-width: 100%
+		margin: 0 auto 1.5em
+		text-align: center
+	&__list
+		display: flex
+		flex-wrap: wrap
+		margin: 0 -15px
+		justify-content: space-between
+.step
+	display: flex
+	align-items: center
+	margin: 0 0 64px
+	padding: 0 0 0 17px
+	position: relative
+	&:before
+		content: url(../img/icons/scheme-arrow.svg)
+		display: inline-block
+		width: 55px
+		height: 88px
+		position: absolute
+		top: -17px
+		left: -21px
+		z-index: 1
+	&:last-child
+		margin: 0
+	&__pic
+		width: 130px
+		height: 130px
+		border-radius: 50%
+		background-color: #fff
+		box-shadow: 0px 4px 10px rgba(14, 123, 206, 0.4)
+		position: relative
+		flex: 0 0 auto
+		margin: 0 26px 0 0
+		img
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%,-50%)
+			max-width: 80%
+			max-height: 80%
+	&__text
+		width: calc(100% - 156px)
+		flex: 1 1 auto
+		font-family: 'Open Sans'
+.scheme
+	background: url(../img/idiot.jpg) no-repeat left bottom/50% auto
+	padding: 57px 0 58px
+	&__title
+		margin: 0 0 1.5em
+	&__text
+		width: calc(50% - 150px)
+		margin: 0 0 0 auto
+		padding: 0 100px 0 0
+	&__list
+		margin: 0 0 58px
+	&__btn
+		margin-left: 17px
+.advantages
+	background: url(../img/feed.jpg) no-repeat right top/50% auto
+	padding: 131px 0 85px
+	&__text
+		width: 50%
+		padding: 0 0 0 6px
+	&__title
+		margin: 0 0 2.4em
+	&__list
+		list-style: none
+		margin: 0
+		padding: 0
+		max-width: 450px
+		counter-reset: adv
+		>li
+			position: relative
+			padding-left: 97/24*1em
+			margin: 0 0 2.5em
+			counter-increment: adv
+			&:before
+				content: ''
+				display: block
+				width: 40/24*1em
+				height: 40/24*1em
+				border-radius: 50%
+				background-color: $yellow
+				position: absolute
+				top: -10/24*1em
+				left: 6/24*1em
+			&:after
+				content: counter(adv)'.'
+				font-size: 65/24*1em
+				font-weight: bold
+				color: $blue
+				display: inline-block
+				position: absolute
+				left: 25/64*1em
+				top: -10/64*1em
+.review-card
+	margin: 50px 120px 60px
+	width: 467px
+	position: relative
+	background-color: #fff
+	border-radius: 20px
+	box-shadow: 0px 4px 10px rgba(14, 123, 206, 0.4)
+	padding: 68px 50px 70px
+	font-family: 'Open Sans'
+	&:before
+		content: ''
+		display: block
+		width: 90px
+		height: 90px
+		position: absolute
+		top: -45px
+		left: calc(50% - 45px)
+		border-radius: 50%
+		background-color: #fff
+		clip: rect(-10px,100px,45px,-10px)
+		box-shadow: 0 0 5px rgba(14, 123, 206, 0.4)
+	&:after
+		content: url(../img/icons/triangle.svg)
+		display: block
+		width: 50px
+		height: 30px
+		position: absolute
+		top: 100%
+		right: 30px
+		filter: drop-shadow(2px 6px 3px rgba(14, 123, 206, 0.4))
+	&__icon
+		height: 63px
+		position: absolute
+		top: -30px
+		left: 50%
+		transform: translateX(-50%)
+		user-select: none
+	&__title
+		text-align: center
+		&:after
+			content: '\e903'
+			display: block
+			font: normal normal 61px/11px 'icomoon'
+			color: $blue
+
+.slick
+	&-arrow
+		display: inline-block
+		cursor: pointer
+		width: 40px
+		height: 40px
+		border-radius: 50%
+		text-align: center
+		background-color: rgba(14, 123, 206, 0.5)
+		color: #fff
+		line-height: 40px
+		font-family: icomoon
+		font-weight: 400
+		font-size: 14px
+	&-prev:before
+		content: '\e900'
+	&-next:before
+		content: '\e901'
+.reviews
+	background-color: rgba(14, 123, 206, 0.05)
+	padding: 90px 0 120px
+	overflow: hidden
+	&__slider
+		padding: 0 50px
+		position: relative
+		.slick-list
+			margin: 0 -120px
+				
+/*ПОДВАЛ*/
+
+/*АДАПТИВ*/
+@import "adaptive"
