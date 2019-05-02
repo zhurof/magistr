@@ -1,5 +1,5 @@
 <? 
 	include 'pseudo-db.php';
-	$current_city = 'Казань';
+	$current_city = 'Самара';
 	include 'template.php';
 ?>

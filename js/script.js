@@ -47,6 +47,51 @@ $(document).keydown(function(e){
 //отзывы
 $('.reviews__slider').slick({
 	slidesToShow: 3,
+	infinite: false,
 	prevArrow: '<span class="reviews__arrow slick-prev"></span>',
 	nextArrow: '<span class="reviews__arrow slick-next"></span>'
 })
+//Загрузка файлов
+$('.file-btn input').change(function(){
+	if(this.value){		
+		$(this).siblings('span').text(this.files[0].name)
+	}else{
+		$(this).siblings('span').text('Прикрепить файл')
+	}
+})
+//Карта
+ymaps.ready(function(){
+	$('[id^="map"]').each(initMap);
+});
+function initMap(){	
+	var address = $(this).data('address') || 'Караганда',
+			mapId = this.id;
+			
+	ymaps.geocode(address, {
+			results: 1
+	}).then(function (res) {
+			// Выбираем первый результат геокодирования.
+			var firstGeoObject = res.geoObjects.get(0),
+					// Координаты геообъекта.
+					coords = firstGeoObject.geometry.getCoordinates(),
+					// Область видимости геообъекта.
+					bounds = firstGeoObject.properties.get('boundedBy');
+					
+					firstGeoObject.options.set('preset', 'islands#darkBlueDotIconWithCaption');
+					// Получаем строку с адресом и выводим в иконке геообъекта.
+					firstGeoObject.properties.set('iconCaption', firstGeoObject.getAddressLine());
+			var myMap = new ymaps.Map(mapId, {
+				center: coords,
+				zoom: 14,
+				controls: ['zoomControl']
+			});
+							
+			myPlacemark = new ymaps.Placemark(coords, 
+				{
+					hintContent: '',
+					balloonContent: ''
+				});
+				myMap.geoObjects.add(myPlacemark);
+	});		
+	//myMap.behaviors.disable('scrollZoom')
+}

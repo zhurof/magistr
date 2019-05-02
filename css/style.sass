@@ -75,11 +75,79 @@ p
 /*элементы форм*/
 input,textarea,button,select
 	font: inherit
-	color: inherit	
+	color: inherit
+	
+[type=text],
+[type=tel],
+[type=email],
+[type=password],
+[type=url],
+textarea
+	display: block
+	margin: 0 0 14px
+	background-color: #fff
+	line-height: 1
+	border: 1px solid #2D638C
+	border-radius: 20px
+	padding: 13.5px 20px
+	color: $text
+	font-family: 'Open Sans'
 	
 textarea
 	resize: none
+	padding: 38px
 	overflow: auto /*опять же для IE*/
+	
+[type=radio]
+	appearance: none
+	display: inline-block
+	width: 20px
+	height: 20px
+	border-radius: 50%
+	flex: 0 0 auto
+	margin: 5px 20px 0 0
+	vertical-align: middle
+	background-color: #fff
+	box-shadow: 0px 4px 10px #2D638C
+	&:checked
+		background: radial-gradient(circle at center,$blue 6px,#fff 6px)
+	&::-ms-check
+		display: none
+
+label
+	display: flex
+	align-items: flex-start
+	margin-bottom: 18/24*1em
+	user-select: none
+	cursor: pointer
+	font-family: 'Open Sans'
+	span
+		width: calc(100% - 40px)
+		flex: 1 1 auto
+		
+.file-btn
+	display: inline-block
+	position: relative
+	font-family: 'Open Sans'
+	font-weight: 600
+	line-height: 1.5
+	&:before
+		content: '\f0c6'
+		font-family: fontAwesome
+		display: inline-block
+		transform: rotate(45deg)
+		font-weight: 400
+	span
+		display: inline-block
+		width: auto
+		margin: 0 0 0 17px
+		border-bottom: 1px solid
+		
+	input
+		position: absolute
+		width: 1px
+		height: 1px
+		z-index: -1
 	
 //select
 	appearance: none
@@ -234,13 +302,16 @@ ul,ol
 	&__wrapper
 		display: flex
 		align-items: center
+		justify-content: space-between
 	&__logo
 		width: 224px
 		margin: 0
+		flex: 0 0 auto
 	&__item
 		display: flex
 		align-items: center
-		margin: 0 14px 0 51px
+		margin: 0 14px
+		//margin: 0 14px 0 51px
 	&__title
 		font: 
 			size: 20px
@@ -249,7 +320,7 @@ ul,ol
 	&__contact
 		margin: 0 0 0 18px
 		width: max-content
-		max-width: 100%
+		max-width: 230px
 		font-size: 16px
 		&:nth-child(n+3)
 			margin: 0 0 0 34px
@@ -286,8 +357,7 @@ ul,ol
 		
 .location
 	+unlist
-	columns: 2
-	
+	columns: 2	
 /*ОСНОВНОЕ СОДЕРЖИМОЕ*/
 .top-block
 	padding: 166px 0 160px
@@ -462,13 +532,13 @@ ul,ol
 				left: 25/64*1em
 				top: -10/64*1em
 .review-card
-	margin: 50px 120px 60px
+	margin: 50px 60px 60px
 	width: 467px
 	position: relative
 	background-color: #fff
 	border-radius: 20px
 	box-shadow: 0px 4px 10px rgba(14, 123, 206, 0.4)
-	padding: 68px 50px 70px
+	padding: 68px 45px 77px 50px
 	font-family: 'Open Sans'
 	&:before
 		content: ''
@@ -489,7 +559,7 @@ ul,ol
 		height: 30px
 		position: absolute
 		top: 100%
-		right: 30px
+		right: 25px
 		filter: drop-shadow(2px 6px 3px rgba(14, 123, 206, 0.4))
 	&__icon
 		height: 63px
@@ -500,11 +570,35 @@ ul,ol
 		user-select: none
 	&__title
 		text-align: center
+		margin: 0 0 .5em
+		&:before
+			content: ''
+			display: block
+			width: 20px
+			height: 20px
+			border-radius: 50%
+			background-color: $blue
+			position: absolute
+			left: 23px
+			top: 20px
 		&:after
 			content: '\e903'
 			display: block
-			font: normal normal 61px/11px 'icomoon'
+			font: normal normal 61px/20px 'icomoon'
 			color: $blue
+	&__date
+		position: absolute
+		right: 18px
+		bottom: 20px
+		font-weight: 600
+		color: $blue
+		font-size: 14px
+		&:before
+			content: '\f073'
+			font-family: fontAwesome
+			font-weight: 400
+			color: $orange
+			margin: 0 10px 0 0
 
 .slick
 	&-arrow
@@ -514,7 +608,7 @@ ul,ol
 		height: 40px
 		border-radius: 50%
 		text-align: center
-		background-color: rgba(14, 123, 206, 0.5)
+		background-color: $blue
 		color: #fff
 		line-height: 40px
 		font-family: icomoon
@@ -524,17 +618,203 @@ ul,ol
 		content: '\e900'
 	&-next:before
 		content: '\e901'
+	&-disabled
+		background-color: transparentize($blue,.5)
+		cursor: default
 .reviews
 	background-color: rgba(14, 123, 206, 0.05)
-	padding: 90px 0 120px
+	padding: 90px 0 92px
 	overflow: hidden
+	&__title
+		margin: 0 0 1.9em
 	&__slider
 		padding: 0 50px
 		position: relative
 		.slick-list
-			margin: 0 -120px
+			margin: 0 -60px
+	&__arrow
+		position: absolute
+		z-index: 2
+		top: 158px
+		&.slick-prev
+			left: -20px
+		&.slick-next
+			right: -20px
+.order
+	background-color: $blue
+	color: #fff
+	padding: 94px 0 45px
+	&__title
+		margin: 0 0 .63em
+		&:before
+			color: inherit
+	&__inner
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		padding: 0 74px 0 0
+	&__item
+		width: calc(50% - 49px)
+		margin: 0 0 13px
+		&:nth-child(-n+2)
+			margin: 0 0 62px
+	&__subtitle
+		margin: 0 0 2em
+	&__multifield
+		display: flex
+		align-items: flex-start
+		input
+			flex: 1 1 auto
+			&:last-child
+				width: 174px
+				flex: 0 0 auto
+				margin: 0 0 0 62px
+	textarea
+		display: block
+		width: 100%
+		height: 256px
+		margin: 0 0 40px
+	&__price
+		font-size: 1.5em
+		font-weight: 600
+		align-self: center
+		font-family: 'Open Sans'
+.contacts
+	padding: 90px 0 0
+	&__title
+		margin: 0 0 .75em
+	&__box
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__item
+		width: calc(50% - 19px)
+		margin: 0 0 70px
+		font-size: 16px
+		line-height: 22/16*1
+		font-weight: 600
+		font-family: 'Open Sans'
+	&__city
+		font-weight: 600
+		display: block
+		font-size: 150%
+		margin: 0 0 4px
+		&:before
+			content: '\e906'
+			font-family: icomoon
+			color: $yellow
+			font-weight: 400
+			margin: 0 10px 0 0
+			font-size: 20/24*100%
+	&__address
+		margin: 0 0 1.1em
+	&__phone
+		margin: 0 0 .7em
+		a
+			color: inherit
+			&:before
+				content: '\f095'
+				font-family: fontAwesome
+				color: $yellow
+				font-weight: 400
+				font-size: 22/16*100%
+				margin: 0 7px 0 0
+	&__email
+		margin: 0 0 1.1em
+		a
+			color: inherit
+			&:before
+				content: '\f0e0'
+				font-family: fontAwesome
+				color: $yellow
+				font-weight: 400
+				font-size: 17/16*100%
+				margin: 0 10px 0 0
+	&__worktime
+		font-size: 14px
+		line-height: 19/14*1
+	&__subtitle
+		font-weight: 600
+		font-size: 16px
+		margin: 0		
+	&__map-box
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__map
+		height: 380px
+		background-color: gray
+		&.small
+			width: calc(50% - 19px)
+			height: 380px
+		&.bg
+			+pos
+	&__inner
+		position: relative
+		padding: 124px 0
+	&__layout
+		position: relative
+		z-index: 1
+		background-color: #fff
+		border: 1px solid $yellow
+		border-radius: 20px
+		max-width: 342px
+		margin: 0 0 0 auto
+		padding: 83px 35px
+		font-size: 16px
+		line-height: 22/16*1
+		font-weight: 600
+		font-family: 'Open Sans'
+.offices
+	background-color: rgba(14, 123, 206, 0.05)
+	padding: 90px 0 10px
+	&__box
+		display: flex
+		flex-wrap: wrap
+	&__item
+		width: 25%
+		margin: 0 0 29px
+		padding: 0 49px 0 0
+		font-family: 'Open Sans'
+		font-size: 16px
+		line-height: 22/16*1
+	&__subtitle		
+		font-weight: 400
+		font-size: 24px
+		margin: 0
 				
 /*ПОДВАЛ*/
-
+.footer
+	font-size: 16px
+	line-height: 22/16*1
+	font-family: 'Open Sans'
+	padding: 32px 0 39px
+	&__wrapper
+		display: flex
+		align-items: center
+		justify-content: space-between
+	&__logo
+		width: 212px
+		flex: 0 0 auto
+		margin: 0 10px 0 0
+	&__subtitle
+		font: inherit
+		display: inline-block
+		margin: 0 1em 0 0
+		vertical-align: middle
+	&__social
+		a
+			display: inline-block
+			vertical-align: middle
+			margin: 0 50px 0 0
+			img
+				display: block
+				width: 36px
+	&__payment
+		img
+			display: inline-block
+			width: 42px
+			vertical-align: middle
+			margin: 0 50px 0 0
 /*АДАПТИВ*/
 @import "adaptive"
