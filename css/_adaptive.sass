@@ -2,15 +2,331 @@
 	.location
 		a:hover
 			text-decoration: underline
+@media (max-width: 1759px)
+	.wrapper
+		max-width: 1200px
+	body
+		font-size: 16px
+	h1
+		font-size: 36px
+	h2
+		font-size: 28px
+	.btn
+		font-size: 20px
+		box-shadow: 0 4px rgba(245, 159, 26, 0.9)
+		min-width: 0
+		padding: 0 30px
+		&_white
+			box-shadow: 0px 2px 5px rgba(14, 123, 206, 0.4)
+		&_small
+			font-size: 18px
+			padding: 0 20px
+	textarea
+		padding: 20px
+	[type=radio]
+		margin: 0 15px 0 0
+		vertical-align: middle
+	.header
+		&__logo
+			width: 120px
+		&__title
+			display: none
+		&__contact
+			font-size: 12px
+			width: auto
+			max-width: 200px
+			margin: 0
+		&__phone
+			font-size: 18px
+		&__location
+			margin: 0 15px
+	.top-block
+		padding: 80px 0
+		font-size: 18px
+		&__text
+			max-width: 50%
+			padding: 0
+	.service-card
+		width: 270px
+		padding: 25px 0 0
+		&:before
+			width: 40px
+			height: 40px
+			line-height: 40px
+			left: calc(50% - 110px)
+		&:after
+			font-size: 20px
+			left: calc(100% + 15px)
+		&__emphasis
+			font-size: 200%
+	.services
+		padding: 50px 0
+		&__list
+			justify-content: flex-start
+	.step
+		&:before
+			width: 30px
+			height: 50px
+			top: -10px
+			left: -5px
+		&__pic
+			width: 100px
+			height: 100px
+			margin: 0 15px 0 0
+	.scheme
+		&__text
+			width: 50%
+			padding: 0 0 0 40px
+	.advantages
+		padding: 60px 0
+	.review-card
+		margin: 50px 15px 60px
+		padding: 68px 30px 77px
+		&.slick-slide
+			flex: 1 1 auto
+			height: auto
+			min-height: 0
+	.reviews
+		padding: 50px 0
+		&__slider
+			.slick-track
+				display: flex
+			.slick-list
+				margin: 0 -15px
+	.order
+		&__item
+			width: calc(50% - 20px)
+			&:nth-child(-n+2)
+				margin: 0 0 20px
+		&__multifield
+			input:last-child
+				margin: 0 0 0 15px
+		textarea
+			height: 200px
+			margin: 0 0 20px
+	.offices
+		&__item
+			font-size: 14px
+		&__subtitle
+			font-size: 18px
+	.footer
+		&__logo
+			width: 150px
+		&__subtitle
+			display: block
+			margin: 0 0 .3em
+		&__social
+			a
+				margin: 0 20px 0 0
+		&__payment
+			img
+				margin: 0 20px 0 0
 @media(max-width:1199px)
 	.wrapper
 		max-width: 992px
+	.top-block
+		padding: 40px 0
+		background-size: auto 100%
+		background-position-x: calc(50% + 300px)
+		br
+			display: none
+	.service-card
+		&:nth-child(2n):after
+			display: none
+	.services
+		&__list
+			margin: 0 auto
+			justify-content: center
+			max-width: 700px
+	.step
+		margin: 0 0 20px
+	.scheme
+		padding: 40px 0
+		&__text
+			padding: 0 0 0 25px
+		&__list
+			margin: 0 0 35px
+	.advantages
+		padding: 40px 0
+		&__title
+			margin: 0 0 1em
+		&__list
+			>li
+				margin: 0 0 1.5em
+	.reviews
+		&__slider
+			padding: 0 50px
+		&__arrow
+			&.slick-prev
+				left: 0
+			&.slick-next
+				right: 0
+	.contacts
+		padding: 40px 0 0
+		&__item
+			width: calc(50% - 10px)		
+		&__map
+			&.small
+				width: calc(50% - 10px)
+				height: 35vw
+		&__inner
+			padding: 60px 0
   
-//@media(max-width:991px)
-	
-
-//@media(max-width:767px)
-	
-
-//@media(max-width:480px)
-	
+@media(max-width:991px)
+	h2
+		&:before
+			display: none
+	body
+		padding: 61px 0 0
+	.header
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		z-index: 4
+		padding: 10px 0
+		box-shadow: 0 0 10px rgba(0,0,0,.2)
+		background-color: #fff
+		&__item
+			&:last-of-type
+				display: none
+		&__phone
+			font-size: 16px
+	.step
+		text-align: left
+	.scheme
+		background: none
+		text-align: center
+		&__text
+			width: auto
+			padding: 0
+	.advantages
+		background: none
+		&__text
+			width: auto
+	.order
+		padding: 40px 0
+		&__inner
+			display: block
+			padding: 0
+		&__item
+			width: auto
+			max-width: 600px
+	.contacts
+		&__item
+			margin: 0 0 20px
+		&__map
+			&.bg
+				position: static
+				height: 350px
+		&__inner
+			padding: 0
+		&__layout
+			border: none
+			max-width: 100%
+			border-radius: 0
+			padding: 0
+			margin: 0 0 20px
+	.offices
+		&__item
+			width: calc(100% / 3)
+	.footer
+		padding: 15px 0
+		text-align: center
+		&__wrapper
+			display: block
+		&__social
+			margin: 0 0 12px
+			a
+				margin: 0 10px
+		&__payment
+			margin: 0 0 12px
+			img
+				margin: 0 10px
+@media(max-width:767px)
+	.header
+		&__item
+			display: none
+	.top-block
+		background: none
+		text-align: center
+		&__text
+			max-width: 100%
+	.service-card
+		width: auto
+		margin: 0
+		&:after
+			display
+			position: static
+			width: auto
+			text-align: center
+			margin: 20px 0
+		&:nth-child(2n):after
+			display: block
+		&:last-child:after
+			display: none
+	.services
+		&__list
+			display: block
+	.reviews
+		&__title
+			text-align: center
+		&__slider
+			padding: 0
+			max-width: 480px
+			margin: 0 auto
+	.contacts
+		&__box
+			display: block
+		&__item
+			width: auto
+		&__item:nth-child(n+2) &__city
+			display: none
+		&__map-box
+			display: block
+		&__map
+			&.small
+				width: 100%
+				height: 300px
+				margin: 0 0 20px
+				&:last-child
+					margin: 0
+	.offices
+		&__item
+			width: 50%
+@media(max-width:480px)
+	h1
+		font-size: 26px
+	h2
+		font-size: 24px
+	.btn
+		&_login
+			font-size: 0
+			padding: 0
+			width: 40px
+			height: 40px
+			line-height: 40px
+			text-align: center
+			&:before
+				font-size: 20px
+				margin: 0
+	.header
+		&__logo
+			width: 90px
+			margin: 0 10px 0 0
+	.order
+		&__multifield
+			display: block
+			input
+				width: 100%
+				&:last-child
+					width: 100%
+					margin: 0 0 12px
+	.offices
+		padding: 30px 0
+		&__box
+			display: block
+		&__item
+			width: 100%
+	.location
+		columns: 1

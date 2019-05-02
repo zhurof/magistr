@@ -49,7 +49,24 @@ $('.reviews__slider').slick({
 	slidesToShow: 3,
 	infinite: false,
 	prevArrow: '<span class="reviews__arrow slick-prev"></span>',
-	nextArrow: '<span class="reviews__arrow slick-next"></span>'
+	nextArrow: '<span class="reviews__arrow slick-next"></span>',
+	dotsClass: 'reviews__dots slick-dots',
+	customPaging: function(){return ''},
+	responsive: [
+		{
+			breakpoint: 1200,
+			settings: {
+				slidesToShow: 2
+			}
+		},{
+			breakpoint: 768,
+			settings: {
+				slidesToShow: 1,
+				arrows: false,
+				dots: true
+			}
+		}
+	]
 })
 //Загрузка файлов
 $('.file-btn input').change(function(){
