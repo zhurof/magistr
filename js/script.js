@@ -1,4 +1,9 @@
-﻿//Модальные окна
+﻿//Всякое визуальное барахло
+var wow = new WOW({
+  mobile:false
+})
+wow.init();
+//Модальные окна
 function openModal(modalId, initiator){  
   var scrollWidth = window.innerWidth - document.body.clientWidth;//Ширина полосы прокрутки
   

@@ -2,6 +2,25 @@
 	.location
 		a:hover
 			text-decoration: underline
+	.btn
+		&:after
+			content: ''
+			+pos
+			border-radius: inherit
+			background-color: $yellow
+			transition: all .2s ease
+			transform: scaleX(0)
+		&:hover:after
+			transform: scaleX(1)
+		&_white
+			transition: all .2s ease
+			&:after
+				display: none
+			&:hover				
+				background-color: $blue
+				color: #fff
+				&:before
+					color: inherit
 @media (max-width: 1759px)
 	.wrapper
 		max-width: 1200px
