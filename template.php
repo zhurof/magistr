@@ -65,7 +65,7 @@
 							<img src="img/icons/desktop.svg" alt="" />
 						</div>
 						<div class="service-card__text">
-							<strong class="service-card__emphasis">15 лет</strong>
+							<strong class="service-card__emphasis"><span class="counter">15</span> лет</strong>
 							<span>Успешно решаем проблемы с учебой</span>
 						</div>
 					</div>
@@ -74,7 +74,7 @@
 							<img src="img/icons/lecture.svg" alt="" />
 						</div>
 						<div class="service-card__text">
-							<strong class="service-card__emphasis">100 000</strong>
+							<strong class="service-card__emphasis"><span class="counter">100000</span></strong>
 							<span>Подготовленных студентов</span>
 						</div>
 					</div>
@@ -83,7 +83,7 @@
 							<img src="img/icons/book.svg" alt="" />
 						</div>
 						<div class="service-card__text">
-							<strong class="service-card__emphasis">более 500</strong>
+							<strong class="service-card__emphasis">более <span class="counter">500</span></strong>
 							<span>Различных учебных дисциплин</span>
 						</div>
 					</div>
@@ -92,7 +92,7 @@
 							<img src="img/icons/student.svg" alt="" />
 						</div>
 						<div class="service-card__text">
-							<strong class="service-card__emphasis">100%</strong>
+							<strong class="service-card__emphasis"><span class="counter">100</span>%</strong>
 							<span>Персональный менеджер, гарантия качества</span>
 						</div>
 					</div>
@@ -328,6 +328,7 @@
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer></script>
 	<script src="//code.jquery.com/jquery-latest.min.js" defer></script>
 	<script src="libs/slick/slick.min.js" defer></script>
+	<script src="libs/counter/jquery.spincrement.min.js" defer></script>
 	<script src="libs/wow/wow.min.js" defer></script>
 	<script src="js/script.js" defer></script>	
 </body>

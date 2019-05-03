@@ -117,3 +117,24 @@ function initMap(){
 	});		
 	//myMap.behaviors.disable('scrollZoom')
 }
+//счетчики
+function counterInit(counter){
+	$(counter).spincrement({
+		duration: 1000,
+		from: 0,
+		thousandSeparator: ' '
+	})
+}
+var counters = new WOW(
+  {
+    boxClass:'counter',      
+    animateClass: 'done', 
+    offset: 0,        
+    mobile: true,       
+    live: true,      
+    callback: function(box) {
+			setTimeout(counterInit(box),1000)
+    }
+  }
+);
+counters.init();
